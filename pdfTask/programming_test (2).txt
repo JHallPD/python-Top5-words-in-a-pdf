@@ -1,0 +1,31 @@
+The task is to create a Flask application that accepts PDF files and records some data about the contents for later consumption.
+
+
+The application must have two routes:
+	1. /upload-file
+		- A POST request.
+		- This POST request accepts a the key 'file' in the form which is a file object (the PDF).
+		- The PDF is processed, and all words are extracted from the PDF file.
+		- The 5 most common words are determined for the file.
+		- A database entry is written that contains information about this file. At minumum:
+			- file name
+			- time of upload
+			- the five most common words
+
+	2. /get-common-words
+		- A GET request.
+		- This GET request makes a database call to query any information previously inserted via the POST request to /upload-file.
+		- the formatting of the response is up to you but name, time of upload, and the 5 most common words for all previously uploaded PDFs must be included in the response.
+
+Notes:
+
+For the database itself, the application should initialize a SQLite database when starting.
+
+Design of the database tables is up to the writer, but as mentioned it must at minumum record the information for:
+	- file name
+	- file upload time
+	- the 5 most common words in the PDF
+
+Python 2.7 must be used.
+
+The writer may use any third-party/open-source libraries they want, just ensure they are installable via a `requirements.txt` file.
